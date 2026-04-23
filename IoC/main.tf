@@ -1,4 +1,4 @@
-resource "docker_networks" "network"{
+resource "docker_network" "network"{
 	name	=	"${var.name_network}"
 }
 
@@ -19,25 +19,29 @@ resource "docker_image" "api-image"{
 
 
 resource "docker_container" "web-image"{
-	name	=	"${var.name_web}"
+	name	=	"${var.name_web}-${var.name_network}"
 	image	=	docker_image.web-image.image_id
 	ports{
 		internal	=	80
 		external	=	var.port_web
 	}
-	networks_advanced	=	docker_networks.network.name
+	networks_advanced{
+		name	=	docker_network.network.name
+	}
 }
 resource "docker_container" "api-image"{
-        name    =       "${var.name_api}"
+        name    =       "${var.name_api}-${var.name_network}"
         image	=	docker_image.api-image.image_id
         ports{
                 internal        =       3000
                 external        =       var.port_api
         }
-        networks_advanced	=       docker_networks.network.name
+	networks_advanced{
+                name    =       docker_network.network.name
+        }
 }
 resource "docker_container" "db-image"{
-        name    =       "${var.name_db}"
+        name    =       "${var.name_db}-${var.name_network}"
         image   =       "postgres:latest"
 	env = [
 		"POSTGRES_USER=userr",
@@ -48,5 +52,7 @@ resource "docker_container" "db-image"{
                 internal        =       5432
                 external        =       var.port_db
         }
-        networks_advanced	=       docker_networks.network.name
+	networks_advanced{
+                name    =       docker_network.network.name
+        }
 }
