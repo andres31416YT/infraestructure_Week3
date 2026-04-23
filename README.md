@@ -1,5 +1,5 @@
 #Semana 3, Infraestructura como codigo
-Version 1.0: Environment: dev
+Version 1.0: Environment: dev .
 Dockerizar:
 	API, Frontend, DB
 Requisitos previos:
