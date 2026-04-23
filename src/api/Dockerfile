@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-RUN npm init
+RUN npm init -y
 RUN npm install
 
-CMD ["node","index.js"]
+CMD ["node","server.js"]

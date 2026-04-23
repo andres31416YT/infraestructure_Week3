@@ -11,7 +11,7 @@ const server = http.createServer((req, res) => {
   res.setHeader('Content-Type', 'text/plain; charset=utf-8');
   
   // Enviar el cuerpo de la respuesta
-  res.end('¡Servidor funcionando correctamente!\n');
+  res.end('Hola mundo, un saludo\n');
 });
 
 // Iniciar el servidor
