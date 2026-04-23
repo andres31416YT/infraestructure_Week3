@@ -1,0 +1,30 @@
+# --- Archivos de Estado (State) ---
+# Contienen información sensible de la infraestructura y no deben estar en Git.
+*.tfstate
+*.tfstate.*
+
+# --- Directorios de Trabajo ---
+# Ignora la carpeta .terraform que se crea con 'terraform init' (contiene binarios y módulos).
+.terraform/
+
+# --- Archivos de Variables ---
+# Ignora archivos que terminan en .tfvars, ya que suelen contener secretos o IPs.
+*.tfvars
+*.tfvars.json
+
+# --- Archivos de Bloqueo de Dependencias ---
+# Generalmente se mantienen, pero si prefieres manejar versiones estrictas manualmente, 
+# algunos equipos los ignoran. Lo estándar es NO ignorar .terraform.lock.hcl.
+# .terraform.lock.hcl
+
+# --- Archivos de Log y Crash ---
+*.txt
+terraform.log
+crash.log
+
+# --- Archivos de Plan (Salida de terraform plan) ---
+# Los archivos generados por 'terraform plan -out=...' no deben subirse.
+*.tfplan
+
+# --- Directorios de Backup y Temporales ---
+.terraform.tfstate.lock.info
