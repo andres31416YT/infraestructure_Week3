@@ -1,0 +1,14 @@
+networks:
+  network_1:
+    driver: bridge
+
+services:
+  web:
+    container_name: web
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    ports:
+      - "4001:80"
+    networks:
+      - "network_1"
