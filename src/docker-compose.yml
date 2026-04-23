@@ -22,3 +22,16 @@ services:
       - "4002:3000"
     networks:
       - "network_1"
+
+  db:
+    container_name: db
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: tu_usuario
+      POSTGRES_PASSWORD: tu_password_segura
+      POSTGRES_DB: nombre_base_datos
+    ports:
+      - "4003:5432"
+    networks:
+      - "network_1"
