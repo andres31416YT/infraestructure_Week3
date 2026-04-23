@@ -9,7 +9,7 @@
 
 # --- Archivos de Variables ---
 # Ignora archivos que terminan en .tfvars, ya que suelen contener secretos o IPs.
-*.tfvars
+tfvars
 *.tfvars.json
 
 # --- Archivos de Bloqueo de Dependencias ---
